@@ -12,7 +12,8 @@ class Category extends Model
         "name",
         "description",
         "metatitle",
-        "active_menue"
+        "active_menue",
+        "photo"
     ];
     public function products(){
         return $this->belongsToMany(Product::class)->withTimestamps();

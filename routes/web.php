@@ -57,6 +57,12 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/editCat", [CustomDashboard::class,"editCat"])
     ->name("editCat");
 
+    Route::get("/editPromos", [CustomDashboard::class,"editPromos"])
+    ->name("editPromos");
+
+    Route::get("/userPageSetting", [CustomDashboard::class,"userPageSetting"])
+    ->name("userPageSetting");
+
 });
 
 
@@ -78,6 +84,12 @@ Route::middleware(["auth"])->group(function () {
     Route::post("/API/deleteCat", [ApiController::class,"deleteCat"])->name("deleteCat");
     Route::post("/API/addCategoryy", [ApiController::class,"addCategory"])->name("addCategoryy");
     Route::post("/API/updateCategory", [ApiController::class,"updateCategory"])->name("updateCategory");
+    Route::get("/API/getPromos", [ApiController::class,"getPromos"])->name("getPromos");
+    Route::post("/API/deletePromo", [ApiController::class,"deletePromo"])->name("deletePromo");
+    Route::post("/API/createPromo", [ApiController::class,"createPromo"])->name("createPromo");
+    Route::post("/API/updatePromo", [ApiController::class,"updatePromo"])->name("updatePromo");
+
+
 })->name("endpoints");
 
 

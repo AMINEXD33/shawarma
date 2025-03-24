@@ -23,16 +23,25 @@ export default function EditCategory({ data }: EditProductProps) {
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
     const [meta, setMeta] = useState("");
+    const [photo, setPhoto] = useState<File>();
 
     const update = async ()=>{
-        let response = await CustomFetch(route("updateCategory"), "POST", JSON.stringify({
-            id: data["category"]["id"],
-            name: name,
-            desc: desc,
-            meta: meta
-        }));
+        let formData = new FormData();
+        formData.append("id", data["category"]["id"])
+        formData.append("name", name);
+        formData.append("desc", desc);
+        formData.append("meta", meta);
+        if (photo){
+            formData.append("photo", photo);
+        }
+        
+        
+        const response =  await fetch(route("updateCategory"), {
+            method:"POST",
+            body: formData,
+        })
 
-        if (response.code==="data"){
+        if (response.ok){
             dispatcher(SUCCESS("Ingrediant updated"));
         }
         else{
@@ -51,6 +60,11 @@ export default function EditCategory({ data }: EditProductProps) {
             title="Edit ingrédients"
             subtitle="veuillez seléctionnner un thémes pour votre site"
         >
+            <input 
+                type="file"
+                onChange={(e)=>{setPhoto(e.target.files?.[0])}}
+            />
+            <div>
             <FormINput 
             setOuterState={setName}
             defaultt={data["category"]["name"]}
@@ -71,6 +85,7 @@ export default function EditCategory({ data }: EditProductProps) {
                 type="button"
                 onClick={async ()=>{await update()}}
             />
+            </div>
             </div>
 
 

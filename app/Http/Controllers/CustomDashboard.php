@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Ingred;
+use App\Models\Promo;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Product;
@@ -137,6 +138,34 @@ class CustomDashboard extends Controller
             "data"=>[
                 "category"=>$cat
             ]
+        ]);
+    }
+
+    public function editPromos(Request $request){
+        $id = $request->id;
+        if (!$id){
+            return Inertia::render("mainlayout", [
+                "targetPage"=>4
+            ]);
+        }
+        $promo = Promo::find($id);
+        if (! $promo){
+            return Inertia::render("mainlayout", [
+                "targetPage"=>4
+            ]);
+        }
+
+        return Inertia::render("mainlayout", [
+            "targetPage"=>10,
+            "data"=>[
+                "promo"=>$promo
+            ]
+        ]);
+    }
+
+    public function userPageSetting(Request $request){
+        return Inertia::render("mainlayout", [
+            "targetPage"=>11
         ]);
     }
 

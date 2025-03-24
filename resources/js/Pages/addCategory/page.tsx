@@ -19,15 +19,21 @@ export default function AddCategory() {
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
     const [meta, setMeta] = useState("");
-
+    const [photo, setPhoto] = useState<File>();
 
     const submitData = async () => {
-        const response = await CustomFetch(route("addCategoryy"), "POST", JSON.stringify({
-            name: name,
-            desc: desc,
-            meta: meta
-        }));
-        if (response.code === "data"){
+        const formData = new FormData();
+        if (photo){
+            formData.append('photo', photo);
+        }
+        formData.append('name', name);
+        formData.append('desc', desc);
+        formData.append('meta', meta);
+        const response = await fetch(route("addCategoryy"), {
+            method:"POST",
+            body: formData
+        });
+        if (response.ok){
             dispatcher(SUCCESS("category added"));
         }else{
             dispatcher(ERROR("can't add category"))
@@ -45,6 +51,12 @@ export default function AddCategory() {
             <form className="formgroup">
                
                     <div className="p50">
+                        <input 
+                            type="file"
+                            onChange={(e)=>{
+                                setPhoto(e.target.files?.[0]);
+                            }}
+                        />
                         <FormINput
                             id="nom"
                             placeholder="Nom"

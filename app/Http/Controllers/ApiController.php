@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ingred;
+use App\Models\Promo;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -10,7 +11,7 @@ use DB;
 use App\Models\Souce;
 use App\Models\Boison;
 use App\Models\Accompagnement;
-
+use App\Models\Slides;
 use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
@@ -412,41 +413,132 @@ class ApiController extends Controller
 
 
     public function addCategory(Request $request){
-        $name = $request->json("name");
-        $desc = $request->json("desc");
-        $meta = $request->json("meta");
+        $name = $request->name;
+        $desc = $request->desc;
+        $meta = $request->meta;
+        $photo = $request->photo;
 
-        if (!$name || !$desc || !$meta) {
+        if (!$name || !$desc || !$meta || !$photo) {
             return response()->json(["err"=> "bad request"],404);
         }
-
+        $path = $request->file('photo')->store('photos', 'public');
         $cat = Category::create([
-            "name"=> $name,
-            "description"=> $desc,
-            "metatitle"=> $meta
+            'name'=> $name,
+            'description'=> $desc,
+            'metatitle'=> $meta,
+            'photo'=> $path
         ]);
-
         return response()->json(["msg"=> $cat],200);
     }
 
 
     public function updateCategory(Request $request){
-        $id = $request->json("id");
-        $name = $request->json("name");
-        $desc = $request->json("desc");
-        $meta = $request->json("meta");
-        if (!$id || !$name || !$desc || !$meta) {
+        $id = $request->id;
+        $name = $request->name;
+        $desc = $request->desc;
+        $meta = $request->meta;
+        $photo = $request->photo;
+        if (!$id || !$name || !$desc || !$meta ) {
             return response()->json(["err"=> "bad request"],404);
         }
         $cat = Category::find($id);
         if (!$cat) {
             return response()->json(["err"=> "can't find category"],404);
         }
+
+        try{
+            $path = public_path($cat->photo);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }catch (\Exception $e){
+
+        }
+
+        $path = null;
+        if ($photo) {
+            $path = $request->file('photo')->store('photos', 'public');
+        }
         $cat->update([
             "name"=> $name,
             "description"=> $desc,
-            "metatitle"=> $meta
+            "metatitle"=> $meta,
+            'photo'=> $path
         ]);
         return response()->json(["msg"=> $cat],200);
+    }
+
+
+    public function getPromos(Request $request){
+        return response()->json(["promos"=> Promo::all()],200);
+    }
+
+    public function deletePromo(Request $request){
+        $id = $request->json("id");
+        $promo = Promo::find($id);
+        if (!$promo) {
+            return response()->json(["err"=> "can't find promo"],404);
+        }
+        $promo->delete();
+        return response()->json(["msg"=> "promo deleted"],200);
+    }
+
+    public function updatePromo(Request $request){
+        $id = $request->json("id");
+        $code = $request->json("code");
+        $value = $request->json("value");
+        if (!$id || !$code || !$value) {
+            return response()->json(["err"=> "bad request"],404);
+        }
+        $promo = Promo::find($id);
+        if (!$promo) {
+            return response()->json(["err"=> "can't find promo"],404);
+        }
+        $promo->update([
+            "code"=> $code,
+            "value"=> $value
+        ]);
+        return response()->json(["msg"=> "promo"],200);
+    }
+
+    public function createPromo(Request $request){ 
+        $code = $request->json("code");
+        $value = $request->json("value");
+        if (!$code || !$value) {
+            return response()->json(["err"=> "no argument is passed"],404);
+        }
+        $promo = Promo::create([
+            "code"=> $code,
+            "value"=> $value
+        ]);
+        return response()->json(["msg"=> $promo],200);
+    }
+
+
+    public function getSlides(Request $request){
+        return response()->json(["slides"=> Slides::all()]);
+    }
+
+    public function updateSlides(Request $request){
+        $validator = Validator::make($request->all(), [
+            'title'          => 'required|string|max:255',
+            'description'   => 'nullable|string',
+            'title_size'      => 'required|numeric',
+            'second_title'      => 'required|string',
+            'second_title_size'         => 'required|numeric',
+            'action'       => 'required|in:true,false',
+            'button'    => 'required|string',
+            "link"=>    "required|string",
+            'photo'         => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        ]);
+    
+        // If validation fails, return a JSON error response
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+        $validated = $validator->validated();
+        $slide = Slides::create($validated);
+
+        return response()->json(['msg'=> $slide],200);
     }
 }

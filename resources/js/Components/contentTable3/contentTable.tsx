@@ -19,6 +19,7 @@ export type tableElement = {
     description: string;
     metatitle: string;
     active_menue: boolean;
+    photo: string;
 };
 
 type ContentTableProps = {
@@ -100,6 +101,7 @@ export default function ContentTable({
         <Table className="Contenttable" style={{ width: "100%" }}>
             <thead>
                 <tr>
+                    <th>photo</th>
                     <th>name</th>
                     <th>description</th>
                     <th>metatitle</th>
@@ -110,6 +112,10 @@ export default function ContentTable({
                 {dataList.map((item, index) => {
                     return (
                         <tr id={`tableelement${index}`} key={`tableelement${index}`} className="Tablecell">
+                            <td>
+                            <img
+                            style={{width:"80px", height:"80px"}} 
+                            src={"./storage/"+item.photo}/></td>
                             <td>{item.name}</td>
                             <td>{item.description}</td>
                             <td>{item.metatitle}</td>

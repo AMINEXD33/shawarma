@@ -28,6 +28,11 @@ import EditIngred from "./editIngreds/page";
 import ManageCats from "./manageCategory/page";
 import AddCategory from "./addCategory/page";
 import EditCategory from "./editCategory/page";
+import ManagePromos from "./managePromos/page";
+import EditPromos from "./editPromos/page";
+import settings_light from "@/photos/setting_light.svg";
+import settings_dark from "@/photos/setting_black.svg";
+import ManageSlides from "./manageSlides/page";
 
 type propsType = PageProps<{
     targetPage: number;
@@ -98,12 +103,14 @@ export default function MainLayout({ targetPage = 1 , data}: propsType) {
                             {targetPage==1 && <ManageProducts/>}
                             {targetPage==2 && <ManageCats/>}
                             {targetPage==3 && <ManageIngred/>}
-                            {targetPage==4 && <div>this is the forth page</div>}
+                            {targetPage==4 && <ManagePromos/>}
                             {targetPage==5 && <AddProduct/>}
                             {targetPage==6 && <EditProduct data={data}/>}
                             {targetPage==7 && <EditIngred data={data}/>}
                             {targetPage==8 && <AddCategory/>}
                             {targetPage==9 && <EditCategory data={data}/>}
+                            {targetPage==10 && <EditPromos data={data}/>}
+                            {targetPage==11 && <ManageSlides/>}
                     </Container>
                 </Container>
             </div>
@@ -133,6 +140,11 @@ export default function MainLayout({ targetPage = 1 , data}: propsType) {
                             onClick={()=>{location.assign("/managePromos")}} 
                             className={targetPage==4?"linkCOntainer fulllink":"fulllink"}>
                             <img src={targetPage==4?promo_light:promo_dark} id="notifnav" />
+                            </div>
+                            <div
+                            onClick={()=>{location.assign("/userPageSetting")}} 
+                            className={targetPage==11?"linkCOntainer fulllink":"fulllink"}>
+                            <img src={targetPage==11?settings_light:settings_dark} id="notifnav" />
                             </div>
                         </div>
                     </div>
@@ -164,6 +176,12 @@ export default function MainLayout({ targetPage = 1 , data}: propsType) {
                             onClick={()=>{location.assign("/managePromos")}} 
                             className={targetPage==4?"linkCOntainer fulllink":"fulllink"}>
                                 <img src={targetPage==4?promo_light:promo_dark} id="notifnav" />
+                                <p>Gestion des catégories </p>
+                            </div>
+                            <div
+                            onClick={()=>{location.assign("/userPageSetting")}} 
+                            className={targetPage==11?"linkCOntainer fulllink":"fulllink"}>
+                                <img src={targetPage==11?settings_light:settings_dark} id="notifnav" />
                                 <p>Gestion des catégories </p>
                             </div>
                         </div>
