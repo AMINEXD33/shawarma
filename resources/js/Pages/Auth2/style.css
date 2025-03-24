@@ -1,0 +1,39 @@
+.LoginForm{
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 3.5px 3.5px 6px 0px rgba(255, 255, 255, 0.15) inset, 5.9px 6.8px 15.5px 0px rgba(190, 205, 226, 0.28), -2.8px -2.8px 8px 0px rgba(255, 255, 255, 0.81);
+    width: 906px;
+    height: 621px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    
+}
+.containerCentrlize{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.smallerror{
+    border-radius: 65px;
+    background: rgba(209, 18, 83, 0.99);
+    width: 619px;
+height: 39px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: white;
+padding-left: 10px;
+padding-right: 10px;
+}
+.smallerror img:nth-child(3){
+    cursor: pointer;
+}
+.logofix{
+    position: absolute;
+    top: -50px;
+}

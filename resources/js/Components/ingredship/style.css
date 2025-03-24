@@ -1,0 +1,13 @@
+.ingredship{
+    
+    height: 30px;
+    border-radius: 10px;
+    background-color: #F6F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px 0 5px;
+    text-overflow:ellipsis;
+    gap: 5px;
+    padding: 5px;
+}

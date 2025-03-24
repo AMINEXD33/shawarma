@@ -1,0 +1,62 @@
+.sliderBase{
+    width: 70px;
+    height: 30px;
+    background-color: #EBEBEB;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+.sliderCercle{
+    height: 30px;
+    width: 30px;
+    background-color: #D11253;
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+}
+.sliderCercleOn{
+    animation: slideon 0.1s alternate forwards ease-in-out;
+}
+.sliderCercleOff{
+    animation: slideoff 0.1s alternate forwards ease-in-out;
+}
+.sidetitle{
+    position: absolute;
+    top: 2px;
+}
+.sidetitle:nth-child(1){
+    left: 0;
+}
+.sidetitle:nth-child(2){
+    right: 0;
+}
+
+@keyframes slideoff {
+    0%{
+        left: 0%;
+
+        background-color: gray;
+    }
+    50%{
+
+    }
+    100%{
+        left: 60%;
+        background-color: #D11253;
+    }
+}
+
+@keyframes slideon {
+    0%{
+        left: 60%;
+        background-color: #D11253;
+    }
+    50%{
+        
+    }
+    100%{
+        left: 0%;
+        background-color: gray;
+    }
+    
+}

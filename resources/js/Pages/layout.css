@@ -1,0 +1,167 @@
+@font-face {
+    font-family: poppins;
+    src: url("/resources/js/fonts/fonts/Poppins/Poppins-Medium.ttf");
+}
+*{
+    font-family: poppins;
+}
+
+.mainCont{
+    display: flex;
+    /* background-color: aqua; */
+    height: 100%;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+}
+p{
+    margin-bottom: 0;
+}
+/* content bar modes*/
+.rightContainer{
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    position: relative;
+    background-color: #F8F8F8;
+    flex-direction: column;
+
+}
+/* side bar*/
+.leftContainer{
+    height: 100%;
+    width: 25%;
+    background-color: #FFFF;
+    /* background-color: green; */
+}
+/* side bar modes*/
+.active{
+    width: 25%;
+    animation:  expand 0.5s alternate forwards ease-in-out;
+}
+.unactive{
+    width: 10%;
+    animation:  shrink 0.5s alternate forwards ease-in-out;
+
+}
+@keyframes shrink {
+    from {
+        width: 25%;
+    }
+    to{
+        width: 10%;
+    }
+}@keyframes expand {
+    from {
+        width: 10%;
+    }
+    to{
+        width: 25%;
+    }
+}
+#logonav{
+    width: 50px;
+    height: 50px;
+}
+.navbar{
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.navRight{
+    display: flex;
+    gap: 5px;
+    flex-direction: row-reverse;
+}
+#settnav{
+    height: 50px;
+    width: 50px;
+}
+
+#notifnav{
+    height: 50px;
+    width: 50px;
+}
+
+#burgnav{
+    height: 50px;
+    width: 50px;
+}
+.sameleft{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    /* background-color: aqua; */
+    align-items: center;
+}
+.group{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    color: #5F5F5F;
+}
+.linkCOntainer{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    width: 120%;
+    height: 50px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background-color: #D11253;
+    padding: 30px;
+    color: white;
+}
+.linkCOntainer p{
+    color: white;
+}
+.fulllink{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.fulllink p{
+    animation: appearTExt 1s alternate forwards ease-in-out;
+}
+@keyframes appearTExt {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+.content{
+    padding: 5%;
+}
+
+
+
+
+#group3 img,
+#group2 img{
+    width: 30px;
+    height: 30px;
+}
+
+.alerts{
+    position: absolute;
+    top: 10px;
+    z-index: 10;
+
+}

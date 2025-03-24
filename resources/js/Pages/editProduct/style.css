@@ -1,0 +1,53 @@
+.everything_horiz{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.p50{
+    width: 50%;
+    display: flex;
+    align-items: start;
+    
+    flex-direction: column;
+    gap: 10px;
+}
+.textareaform{
+    border-radius: 4px;
+    background: #FFF;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
+    height: 110px;
+    width: 100%;
+    resize: none;
+}
+.checkboxes{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.formgroup{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.sides{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.slidesform{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+}
+.horiz{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}

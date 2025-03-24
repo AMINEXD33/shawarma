@@ -1,0 +1,27 @@
+#searchbox{
+    border-radius: 4px;
+    background: #FFF;
+    border: 0px;
+    background-color: transparent;
+    padding: 2px;
+    margin: 0px;
+    width: 250px;
+    height: 40px;
+}
+.searchbox :focus{
+    animation: searchboxinput 0.4s alternate forwards ease-in-out;
+}
+.searchbox{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+}
+#searchicon{
+    position: absolute;
+    right: 0;
+}

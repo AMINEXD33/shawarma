@@ -1,0 +1,7 @@
+.inputCustom{
+    width: 625px;
+height: 66px;
+    border-radius: 63px;
+background: #FFF;
+box-shadow: 3.5px 3.5px 6px 0px rgba(255, 255, 255, 0.15) inset, 5.9px 0.8px 15.5px 0px rgba(190, 205, 226, 0.28) inset, -2.8px -2.8px 8px 0px rgba(255, 255, 255, 0.81);
+}

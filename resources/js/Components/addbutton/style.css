@@ -1,0 +1,17 @@
+.addbtn{
+    border-radius: 4px;
+    border: 1px solid #D22254;
+    background: #D22254;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 5px;
+    cursor: pointer;
+}
+#addicon{
+    width: 20px;
+    height: 20px;
+}
