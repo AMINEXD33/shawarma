@@ -134,7 +134,7 @@ export default function AddProduct() {
             title="nouveau produits"
             subtitle="veuillez seléctionnner un thémes pour votre site"
         >
-            <form className="formgroup">
+            <form className="formgroup" style={{flexDirection: "column"}}>
                 <div
                     className="everything_horiz"
                     style={{ justifyContent: "start", marginTop: "50px" }}
@@ -153,7 +153,7 @@ export default function AddProduct() {
                     />
                 </div>
                 <div className="everything_horiz">
-                    <div className="p50">
+                    <div className="p60">
                         <FormINput
                             id="nom"
                             placeholder="Nom"
@@ -163,7 +163,7 @@ export default function AddProduct() {
                             setOuterState={setName}
                         />
                         <div className="everything_horiz">
-                            <div className="p50">
+                            <div className="p60">
                                 <FormINput
                                     id="emporter"
                                     placeholder=""
@@ -173,7 +173,7 @@ export default function AddProduct() {
                                     setOuterState={setImportPrice}
                                 />
                             </div>
-                            <div className="p50">
+                            <div className="p60">
                                 <FormINput
                                     id="livraison"
                                     placeholder=""
@@ -185,7 +185,7 @@ export default function AddProduct() {
                             </div>
                         </div>
                     </div>
-                    <div className="p50">
+                    <div className="p60">
                         <label htmlFor="descriptionpro">Description</label>
                         <textarea
                             placeholder="Description"

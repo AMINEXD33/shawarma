@@ -25,7 +25,7 @@
 .checkboxesList::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-.box{
+.boxyyy{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -44,7 +44,7 @@
     width: 20px;
     height: 20px;
 } */
-input[type="checkbox"] {
+.boxyyy input[type="checkbox"] {
     appearance: none; /* Remove default styles */
     width: 20px;
     height: 20px;
@@ -54,7 +54,7 @@ input[type="checkbox"] {
     background-color: white;
 }
 
-input[type="checkbox"]:checked {
+.boxyyy input[type="checkbox"]:checked {
     background-color: #D11253; /* Change color when checked */
     border-color: #D11253;
 }

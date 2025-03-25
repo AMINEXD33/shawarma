@@ -55,7 +55,7 @@
 .shipselectorDropdown{
     width: 100%;
     position: absolute;
-    bottom: -200px;
+    bottom: 0px;
     height: auto;
     background-color: rgb(255, 255, 255);
     max-height: 200px;

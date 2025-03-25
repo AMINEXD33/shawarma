@@ -127,7 +127,7 @@ export default function ManageIngred() {
     };
     return (
         <MainDiv
-            title="gestion des produits"
+            title="gestion des Ingrediants"
             subtitle="veuillez seléctionnner un thémes pour votre site"
         >
             <div className="actionpanel">

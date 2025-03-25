@@ -81,7 +81,7 @@ export default function CheckBoxMultiple({
                 {dataList.map((item, index) => {
                     return (
                         <div className="boxunite">
-                            <div className="box">
+                            <div className="boxyyy">
                                 <label>{item.name}</label>
                                 <input 
                                 id={item.id.toString()}

@@ -176,7 +176,7 @@ export default function MainLayout({ targetPage = 1 , data}: propsType) {
                             onClick={()=>{location.assign("/managePromos")}} 
                             className={targetPage==4?"linkCOntainer fulllink":"fulllink"}>
                                 <img src={targetPage==4?promo_light:promo_dark} id="notifnav" />
-                                <p>Gestion des catégories </p>
+                                <p>Gestion des promo </p>
                             </div>
                             <div
                             onClick={()=>{location.assign("/userPageSetting")}} 
