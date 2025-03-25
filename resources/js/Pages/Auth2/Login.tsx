@@ -29,7 +29,7 @@ export default function Login() {
             body: form
         })
         if (header.ok){
-            location.replace(route("dashboard"));
+            location.replace(route("manageProducts"));
             return;
         }
         setError("wrong email or password");

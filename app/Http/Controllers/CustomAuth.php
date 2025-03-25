@@ -14,7 +14,6 @@ class CustomAuth extends Controller
 {
     public function loginForm(){
         return Inertia::render("Auth2/Login");
-
     }
 
     public function login(LoginRequest $request){

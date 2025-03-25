@@ -48,9 +48,9 @@ export default function AddCategory() {
             title="nouveau category"
             subtitle="veuillez seléctionnner un thémes pour votre site"
         >
-            <form className="formgroup">
+            <form className="formgroup41">
                
-                    <div className="p50">
+                    <div className="p60">
                         <input 
                             type="file"
                             onChange={(e)=>{
